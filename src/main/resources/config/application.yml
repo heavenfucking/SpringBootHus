@@ -1,0 +1,21 @@
+spring:
+  profiles.active: dev
+  mvc.view.prefix: /WEB-INF/view/
+  mvc.view.suffix: .jsp
+server:
+  contextPath: /hus
+  port: 8001
+
+
+---
+spring:
+ profiles: dev
+ datasource:
+     driver: com.mysql.jdbc.Driver
+     url: jdbc:mysql://119.29.76.98:3306/test
+     username: itoffice
+     password: itoffice
+ wechat:
+    appID: wxa4cc0a202b65477c
+    appsecret: 29d8103ec273d5af766ed8ba7eaec315
+
