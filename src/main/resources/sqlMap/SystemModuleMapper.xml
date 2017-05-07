@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hus.web.mapper.SystemModuleMapper">
+    <select id="selectParentModuleByType" resultType="com.hus.web.entity.SystemModule">
+        select
+            id as id,
+            type as type,
+            name as name,
+            url as url,
+            parent_id as parentId
+        from
+           system_module
+        where
+           type = #{type, jdbcType=INTEGER} and parent_id = 0
+    </select>
+
+    <select id="selectChildModuleByParentId" resultType="com.hus.web.entity.SystemModule">
+        select
+          id as id,
+          type as type,
+          name as name,
+          url as url,
+          parent_id as parentId
+        from
+          system_module
+        where
+          parent_id = #{parentId, jdbcType=INTEGER}
+    </select>
+</mapper>

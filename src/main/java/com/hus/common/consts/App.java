@@ -30,5 +30,10 @@ public interface App {
         public static final String WECHAT_USER_ACCESS_TOKEN = "session_key_wechat_user_access_token";
         /** 当前用户的openid */
         public static final String WECHAT_USER_OPEN_ID = "session_key_user_open_id";
+        /** 当前用户对象 */
+        public static final String CURRENT_USER_OBJECT = "session_key_current_user_object";
+        /** 系统菜单 */
+        public static final String SYSTEM_MENU_ALL = "session_key_system_menu_all";
     }
+
 }

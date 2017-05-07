@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hus.web.mapper.CourseMapper">
+   <select id="selectAll" resultType="java.util.Map">
+       select
+         ci.sno 'sno',
+         ci.name 'name',
+         ui.name 'teacherName',
+         ci.address 'address',
+         ci.study_score 'studyScore',
+         ci.study_slot  'studySlot',
+         ci.all_quato  'allQuato',
+         ci.chossed_quato 'choosedQuato'
+      from
+          course_info ci inner join user_info ui on ui.id = ci.teacher_id
+   </select>
+</mapper>

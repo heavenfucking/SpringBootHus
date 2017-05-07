@@ -2,28 +2,116 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hus.web.mapper.UserMapper">
     <insert id="insert" parameterType="com.hus.web.entity.User">
-        INSERT into user
+        insert into user_info
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                id,
+            <if test="type!=null">
+                type,
+            </if>
+            <if test="sno != null" >
+                sno,
+            </if>
+            <if test="password!=null">
+                password,
             </if>
             <if test="name != null">
                 name,
             </if>
-            <if test="phone !=null">
-                phone,
+            <if test="departmentId !=null">
+                department_id,
+            </if>
+            <if test="openId!=null">
+                open_id,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                #{id,jdbcType=INTEGER},
+            <if test="type!=null">
+                #{type, jdbcType=INTEGER},
+            </if>
+            <if test="sno != null" >
+                #{sno,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                #{password,jdbcType=VARCHAR},
             </if>
             <if test="name != null">
                 #{name, jdbcType=VARCHAR},
             </if>
-            <if test="phone !=null">
-                #{phone, jdbcType=VARCHAR},
+            <if test="departmentId !=null">
+                #{departmentId, jdbcType=INTEGER},
+            </if>
+            <if test="openId != null">
+                #{openId, jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
+    <update id="update" parameterType="com.hus.web.entity.User">
+        update user_info
+        <set>
+            <if test="type!=null">
+                type = #{type, jdbcType=INTEGER},
+            </if>
+            <if test="sno != null" >
+                sno = #{sno,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name, jdbcType=VARCHAR},
+            </if>
+            <if test="departmentId !=null">
+                department_id = #{departmentId, jdbcType=INTEGER},
+            </if>
+            <if test="openId != null">
+                open_id = #{openId, jdbcType=VARCHAR},
+            </if>
+        </set>
+        where
+            id = #{id, jdbcType=INTEGER}
+    </update>
+    <select id="selectUserBySno" resultType="com.hus.web.entity.User">
+        SELECT
+           id as id,
+           type as type,
+           sno as sno,
+           name as name,
+           department_id as departmentId,
+           password as password,
+           open_id as openId
+        from
+           user_info
+        where
+           sno = #{sno, jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectStudentInfo" resultType="java.util.Map">
+        select
+           ui.id 'id',
+           ui.sno 'sno',
+           ui.name 'name',
+           di.departmemt 'department',
+           di.prefession 'prefession',
+           di.grade 'grade'
+        from
+           user_info ui left join department_info di on ui.department_id = di.id
+        where
+           ui.type=1;
+    </select>
+
+    <select id="selectStudentInfoByPrimaryKey" resultType="java.util.Map">
+        select
+            concat('',id) 'id',
+            sno 'sno',
+            name 'name',
+            concat('',department_id) 'departmentId',
+            password 'password'
+        from
+            user_info
+        where
+            id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from user_info where id = #{id, jdbcType=INTEGER}
+    </delete>
 </mapper>

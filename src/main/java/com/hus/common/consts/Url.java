@@ -11,4 +11,30 @@ public interface Url {
         /** 获取用户授权access_token的url */
         public static final String AUTH_ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code";
     }
+
+    class Login{
+
+        public static final String SHOW_LOGIN_PAGE = "";
+
+
+        public static final String USER_LOGIN_URL = "user/login";
+    }
+
+    class Course{
+
+        public static final String COURSE_LIST_URL = "course/list";
+    }
+
+    class Student{
+
+        public static final String STUDENt_LIST_URL = "student/list";
+
+        public static final String STUDENt_ADD_URL = "student/add";
+
+        public static final String STUDENT_UPDATE_URL = "student/update";
+
+        public static final String STUDENT_DELETE_URL = "student/delete/{id}";
+
+        public static final String STUDENT_INFO_URL = "student/info/{id}";
+    }
 }
