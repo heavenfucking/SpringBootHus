@@ -23,6 +23,18 @@ public interface Url {
     class Course{
 
         public static final String COURSE_LIST_URL = "course/list";
+
+        public static final String COURSE_ADD_URL = "course/add";
+
+        public static final String COURSE_UPDATE_URL = "course/update";
+
+        public static final String COURSE_INFO_URL = "course/info/{id}";
+
+        public static final String COURSE_DELETE_URL = "course/delete/{id}";
+
+        public static final String COURSE_LIST_URL_FOR_STU = "course/stulist";
+
+
     }
 
     class Student{
@@ -36,5 +48,9 @@ public interface Url {
         public static final String STUDENT_DELETE_URL = "student/delete/{id}";
 
         public static final String STUDENT_INFO_URL = "student/info/{id}";
+
+        public static final String STUDENT_CHOOSED_COURSE = "student/choose/course";
+
+        public static final String STUDENT_UNCHOOSED_COURSE = "student/unchoose/course";
     }
 }

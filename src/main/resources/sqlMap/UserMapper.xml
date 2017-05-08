@@ -114,4 +114,14 @@
     <delete id="delete" parameterType="java.lang.Integer">
         delete from user_info where id = #{id, jdbcType=INTEGER}
     </delete>
+
+    <select id="selectTeacherMap" resultType="java.util.Map">
+         SELECT
+              concat(id,'') 'id',
+              concat(name,'(', sno, ')') 'name'
+          FROM
+             user_info
+          WHERE
+             type = 2
+    </select>
 </mapper>

@@ -3,6 +3,7 @@
 <mapper namespace="com.hus.web.mapper.CourseMapper">
    <select id="selectAll" resultType="java.util.Map">
        select
+         ci.id 'id',
          ci.sno 'sno',
          ci.name 'name',
          ui.name 'teacherName',
@@ -10,8 +11,200 @@
          ci.study_score 'studyScore',
          ci.study_slot  'studySlot',
          ci.all_quato  'allQuato',
-         ci.chossed_quato 'choosedQuato'
+         ci.choosed_quato 'choosedQuato'
       from
           course_info ci inner join user_info ui on ui.id = ci.teacher_id
    </select>
+    <select id="selectByteacherId" resultType="java.util.Map">
+        select
+        ci.id 'id',
+        ci.sno 'sno',
+        ci.name 'name',
+        ui.name 'teacherName',
+        ci.address 'address',
+        ci.study_score 'studyScore',
+        ci.study_slot  'studySlot',
+        ci.all_quato  'allQuato',
+        ci.choosed_quato 'choosedQuato'
+        from
+           course_info ci inner join user_info ui on ui.id = ci.teacher_id
+        where
+           teacher_id = #{teacherId, jdbcType=INTEGER}
+    </select>
+    <insert id="insert" parameterType="com.hus.web.entity.Course">
+        insert into course_info
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="sno!=null">
+                sno,
+            </if>
+            <if test="name!=null">
+                name,
+            </if>
+            <if test="teacherId!=null">
+                teacher_id,
+            </if>
+            <if test="studyScore!=null">
+                study_score,
+            </if>
+            <if test="studySlot!=null">
+                study_slot,
+            </if>
+            <if test="address!=null">
+                address,
+            </if>
+            <if test="status!=null">
+                status,
+            </if>
+            <if test="allQuato!=null">
+                all_quato,
+            </if>
+            <if test="choosedQuato!=null">
+                choosed_quato,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="sno!=null">
+                #{sno, jdbcType=VARCHAR},
+            </if>
+            <if test="name!=null">
+                #{name, jdbcType=VARCHAR},
+            </if>
+            <if test="teacherId!=null">
+               #{teacherId, jdbcType=INTEGER},
+            </if>
+            <if test="studyScore!=null">
+                #{studyScore, jdbcType=INTEGER},
+            </if>
+            <if test="studySlot!=null">
+                #{studySlot, jdbcType=INTEGER},
+            </if>
+            <if test="address!=null">
+                #{address, jdbcType=VARCHAR},
+            </if>
+            <if test="status!=null">
+                #{status, jdbcType=INTEGER},
+            </if>
+            <if test="allQuato!=null">
+                #{allQuato, jdbcType=INTEGER},
+            </if>
+            <if test="choosedQuato!=null">
+                #{choosedQuato, jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="com.hus.web.entity.Course">
+    update course_info
+    <set>
+        <if test="sno!=null">
+           sno = #{sno, jdbcType=VARCHAR},
+        </if>
+        <if test="name!=null">
+           name = #{name, jdbcType=VARCHAR},
+        </if>
+        <if test="teacherId!=null">
+           teacher_id = #{teacherId, jdbcType=INTEGER},
+        </if>
+        <if test="studyScore!=null">
+           study_score = #{studyScore, jdbcType=INTEGER},
+        </if>
+        <if test="studySlot!=null">
+           study_slot = #{studySlot, jdbcType=INTEGER},
+        </if>
+        <if test="address!=null">
+           address = #{address, jdbcType=VARCHAR},
+        </if>
+        <if test="status!=null">
+           status = #{status, jdbcType=INTEGER},
+        </if>
+        <if test="allQuato!=null">
+           all_quato =  #{allQuato, jdbcType=INTEGER},
+        </if>
+        <if test="choosedQuato!=null">
+            choosed_quato = #{choosedQuato, jdbcType=INTEGER},
+        </if>
+    </set>
+    where
+        id = #{id, jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.hus.web.entity.Course">
+        select
+            id as id,
+            sno as sno,
+            name as name,
+            teacher_id as teacherId,
+            study_score as studyScore,
+            study_slot as studySlot,
+            address as address,
+            status as status,
+            all_quato as allQuato,
+            choosed_quato as choosedQuato
+        from
+            course_info
+        where
+            id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from course_info where id = #{id, jdbcType=INTEGER}
+    </delete>
+
+    <select id="generateCourseSno" resultType="java.lang.String">
+        select max(sno)+1 from course_info;
+    </select>
+
+    <insert id="studentChoosedCourse">
+        insert into student_course (student_id, course_id) values (#{studentId, jdbcType=INTEGER}, #{courseId, jdbcType=INTEGER})
+    </insert>
+
+    <select id="selectAllStudentUnChoosed" resultType="java.util.Map">
+         select
+         ci.id 'id',
+         ci.sno 'sno',
+         ci.name 'name',
+         ui.name 'teacherName',
+         ci.address 'address',
+         ci.study_score 'studyScore',
+         ci.study_slot  'studySlot',
+         ci.all_quato  'allQuato',
+         ci.choosed_quato 'choosedQuato'
+      from
+          course_info ci inner join user_info ui on ui.id = ci.teacher_id
+      where
+          ci.id not in
+          (
+                    SELECT course_id from student_course sc WHERE sc.student_id=#{studentId, jdbcType=INTEGER}
+          )
+    </select>
+
+    <select id="selectAllStudentChoosed" resultType="java.util.Map">
+        select
+        ci.id 'id',
+        ci.sno 'sno',
+        ci.name 'name',
+        ui.name 'teacherName',
+        ci.address 'address',
+        ci.study_score 'studyScore',
+        ci.study_slot  'studySlot',
+        ci.all_quato  'allQuato',
+        ci.choosed_quato 'choosedQuato'
+        from
+        course_info ci inner join user_info ui on ui.id = ci.teacher_id
+        where
+        ci.id in
+        (
+          SELECT course_id from student_course sc WHERE sc.student_id=#{studentId, jdbcType=INTEGER}
+        )
+    </select>
+
+    <update id="addChoosedQuota" parameterType="java.lang.Integer">
+        update course_info
+             set choosed_quato = choosed_quato + #{num, jdbcType=INTEGER }
+        where id = #{courseId, jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteStudentCourseByStudentIdAndCourseId" parameterType="java.lang.Integer">
+        delete from student_course where student_id = #{studentId, jdbcType=INTEGER} and course_id = #{courseId, jdbcType=INTEGER}
+    </delete>
 </mapper>

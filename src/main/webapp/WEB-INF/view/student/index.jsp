@@ -75,6 +75,12 @@
                            </c:forEach>
                         </tbody>
                     </table>
+                    <ul class="pagination pull-right">
+                        <li><a href="#">上一页</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">下一页</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

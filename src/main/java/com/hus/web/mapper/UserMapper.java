@@ -21,5 +21,7 @@ public interface UserMapper {
 
     List<Map<String, String>> selectStudentInfo();
 
+    List<Map<String, String>> selectTeacherMap();
+
     Map<String, String> selectStudentInfoByPrimaryKey(Integer id);
 }

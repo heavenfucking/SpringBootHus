@@ -21,11 +21,15 @@ public interface View {
 
         /** 课程课表 */
         public static final String COURSE_LIST_VIEW = "course/index";
+
+
     }
 
     class Student{
 
-
         public static final String STUDENt_LIST_VIEW = "student/index";
+
+        /** 学生选课时看到的课程列表 */
+        public static final String COURSE_LIST_VIEW = "student/choosed_course";
     }
 }

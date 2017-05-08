@@ -32,7 +32,6 @@ public class UserController {
         return  userService.addStudent(request, user);
     }
 
-
     @RequestMapping(value = Url.Student.STUDENT_INFO_URL, method = RequestMethod.GET)
     @ResponseBody
     public Map<String, String> getStudentInfo(@PathVariable Integer id){

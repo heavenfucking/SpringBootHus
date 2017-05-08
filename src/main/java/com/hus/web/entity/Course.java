@@ -9,6 +9,8 @@ public class Course {
 
     private String sno;
 
+    private String name;
+
     private Integer teacherId;
 
     private Integer studyScore;
@@ -18,6 +20,10 @@ public class Course {
     private String address;
 
     private Integer status;
+
+    private Integer allQuato;
+
+    private Integer choosedQuato;
 
     public Course() {
     }
@@ -76,5 +82,29 @@ public class Course {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getChoosedQuato() {
+        return choosedQuato;
+    }
+
+    public void setChoosedQuato(Integer choosedQuato) {
+        this.choosedQuato = choosedQuato;
+    }
+
+    public Integer getAllQuato() {
+        return allQuato;
+    }
+
+    public void setAllQuato(Integer allQuato) {
+        this.allQuato = allQuato;
     }
 }
