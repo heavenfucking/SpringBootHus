@@ -84,6 +84,21 @@
            sno = #{sno, jdbcType=VARCHAR}
     </select>
 
+    <select id="selectUserByOpenId" resultType="com.hus.web.entity.User">
+         SELECT
+           id as id,
+           type as type,
+           sno as sno,
+           name as name,
+           department_id as departmentId,
+           password as password,
+           open_id as openId
+        from
+           user_info
+        where
+           open_id = #{openId, jdbcType=VARCHAR}
+    </select>
+
     <select id="selectStudentInfo" resultType="java.util.Map">
         select
            ui.id 'id',
@@ -97,6 +112,21 @@
         where
            ui.type=1;
     </select>
+
+    <select id="selectTeacherInfo" resultType="java.util.Map">
+        select
+        ui.id 'id',
+        ui.sno 'sno',
+        ui.name 'name',
+        di.departmemt 'department',
+        di.prefession 'prefession',
+        di.grade 'grade'
+        from
+        user_info ui left join department_info di on ui.department_id = di.id
+        where
+        ui.type=2;
+    </select>
+
 
     <select id="selectStudentInfoByPrimaryKey" resultType="java.util.Map">
         select

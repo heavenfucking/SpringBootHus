@@ -46,4 +46,29 @@ public class UserService {
         userMapper.delete(id);
         return new ModelAndView("redirect:/"+ Url.Student.STUDENt_LIST_URL);
     }
+
+
+    public ModelAndView teacherList(HttpServletRequest request){
+        request.setAttribute("teacher_lists", userMapper.selectTeacherInfo());
+        request.setAttribute("department_lists", departmentMapper.selectIdAndDP());
+        return new ModelAndView(View.Teacher.TEACHER_LIST_VIEW);
+    }
+
+    public ModelAndView addTeacher(HttpServletRequest request, User user){
+        userMapper.insert(user);
+        return new ModelAndView("redirect:/"+ Url.Teacher.TEACHER_LIST_URL);
+    }
+
+    public Integer updateTeacher(User user){
+        return  userMapper.update(user);
+    }
+
+    public ModelAndView delateTeacher(Integer id){
+        userMapper.delete(id);
+        return new ModelAndView("redirect:/"+ Url.Teacher.TEACHER_LIST_URL);
+    }
+    public Map<String, String> getTeacherInfo(Integer id){
+        return userMapper.selectStudentInfoByPrimaryKey(id);
+    }
+
 }

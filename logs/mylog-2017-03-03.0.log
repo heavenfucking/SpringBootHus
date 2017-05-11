@@ -1,70 +1,14 @@
-[ INFO ] [2017-03-03 15:21:26] com.hus.Application [48] - Starting Application on DESKTOP-HPAU5S0 with PID 12148 (G:\project\SpringBootdemo\target\classes started by zhh in G:\project\SpringBootdemo)
-[ INFO ] [2017-03-03 15:21:26] com.hus.Application [641] - The following profiles are active: dev
-[ INFO ] [2017-03-03 15:21:26] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [582] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@15b007d: startup date [Fri Mar 03 15:21:26 CST 2017]; root of context hierarchy
-[ INFO ] [2017-03-03 15:21:26] org.hibernate.validator.internal.util.Version [30] - HV000001: Hibernate Validator 5.3.4.Final
-[ INFO ] [2017-03-03 15:21:27] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [325] - Bean 'org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration' of type [class org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-[ INFO ] [2017-03-03 15:21:27] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [325] - Bean 'validator' of type [class org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-[ INFO ] [2017-03-03 15:21:27] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [325] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fbe3bf15] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [89] - Tomcat initialized with port(s): 8080 (http)
-[ INFO ] [2017-03-03 15:21:27] org.apache.catalina.core.StandardService [179] - Starting service Tomcat
-[ INFO ] [2017-03-03 15:21:27] org.apache.catalina.core.StandardEngine [179] - Starting Servlet Engine: Apache Tomcat/8.5.11
-[ INFO ] [2017-03-03 15:21:27] org.apache.jasper.servlet.TldScanner [179] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-[ INFO ] [2017-03-03 15:21:27] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/demo] [179] - Initializing Spring embedded WebApplicationContext
-[ INFO ] [2017-03-03 15:21:27] org.springframework.web.context.ContextLoader [276] - Root WebApplicationContext: initialization completed in 1242 ms
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.web.servlet.ServletRegistrationBean [190] - Mapping servlet: 'statViewServlet' to [/druid/*]
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.web.servlet.ServletRegistrationBean [190] - Mapping servlet: 'dispatcherServlet' to [/]
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'characterEncodingFilter' to: [/*]
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'requestContextFilter' to: [/*]
-[ INFO ] [2017-03-03 15:21:27] org.springframework.boot.web.servlet.FilterRegistrationBean [271] - Mapping filter: 'webStatFilter' to urls: [/*]
-[ INFO ] [2017-03-03 15:21:28] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [534] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@15b007d: startup date [Fri Mar 03 15:21:26 CST 2017]; root of context hierarchy
-[ INFO ] [2017-03-03 15:21:28] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [543] - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.hus.web.controller.web.DemoController.test()
-[ INFO ] [2017-03-03 15:21:28] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [543] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[ INFO ] [2017-03-03 15:21:28] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [543] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[ INFO ] [2017-03-03 15:21:28] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [354] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[ INFO ] [2017-03-03 15:21:28] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [354] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[ INFO ] [2017-03-03 15:21:28] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [354] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[ INFO ] [2017-03-03 15:21:28] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [431] - Registering beans for JMX exposure on startup
-[ INFO ] [2017-03-03 15:21:28] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [916] - Bean with name 'druidDataSource' has been autodetected for JMX exposure
-[ INFO ] [2017-03-03 15:21:28] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [671] - Located MBean 'druidDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=druidDataSource,type=DruidDataSource]
-[ INFO ] [2017-03-03 15:21:28] org.apache.coyote.http11.Http11NioProtocol [179] - Initializing ProtocolHandler ["http-nio-8080"]
-[ INFO ] [2017-03-03 15:21:28] org.apache.coyote.http11.Http11NioProtocol [179] - Starting ProtocolHandler [http-nio-8080]
-[ INFO ] [2017-03-03 15:21:28] org.apache.tomcat.util.net.NioSelectorPool [179] - Using a shared selector for servlet write/read
-[ INFO ] [2017-03-03 15:21:28] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [192] - Tomcat started on port(s): 8080 (http)
-[ INFO ] [2017-03-03 15:21:28] com.hus.Application [57] - Started Application in 2.399 seconds (JVM running for 2.652)
-[ INFO ] [2017-03-03 15:22:19] com.hus.Application [48] - Starting Application on DESKTOP-HPAU5S0 with PID 14668 (G:\project\SpringBootdemo\target\classes started by zhh in G:\project\SpringBootdemo)
-[ INFO ] [2017-03-03 15:22:19] com.hus.Application [641] - The following profiles are active: dev
-[ INFO ] [2017-03-03 15:22:19] org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext [582] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2545dc: startup date [Fri Mar 03 15:22:19 CST 2017]; root of context hierarchy
-[ INFO ] [2017-03-03 15:22:19] org.hibernate.validator.internal.util.Version [30] - HV000001: Hibernate Validator 5.3.4.Final
-[ INFO ] [2017-03-03 15:22:19] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [325] - Bean 'org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration' of type [class org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-[ INFO ] [2017-03-03 15:22:19] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [325] - Bean 'validator' of type [class org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-[ INFO ] [2017-03-03 15:22:19] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [325] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$50fc13ef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [89] - Tomcat initialized with port(s): 8080 (http)
-[ INFO ] [2017-03-03 15:22:20] org.apache.catalina.core.StandardService [179] - Starting service Tomcat
-[ INFO ] [2017-03-03 15:22:20] org.apache.catalina.core.StandardEngine [179] - Starting Servlet Engine: Apache Tomcat/8.5.11
-[ INFO ] [2017-03-03 15:22:20] org.apache.jasper.servlet.TldScanner [179] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-[ INFO ] [2017-03-03 15:22:20] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/demo] [179] - Initializing Spring embedded WebApplicationContext
-[ INFO ] [2017-03-03 15:22:20] org.springframework.web.context.ContextLoader [276] - Root WebApplicationContext: initialization completed in 1244 ms
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.web.servlet.ServletRegistrationBean [190] - Mapping servlet: 'statViewServlet' to [/druid/*]
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.web.servlet.ServletRegistrationBean [190] - Mapping servlet: 'dispatcherServlet' to [/]
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'characterEncodingFilter' to: [/*]
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.web.servlet.FilterRegistrationBean [258] - Mapping filter: 'requestContextFilter' to: [/*]
-[ INFO ] [2017-03-03 15:22:20] org.springframework.boot.web.servlet.FilterRegistrationBean [271] - Mapping filter: 'webStatFilter' to urls: [/*]
-[ INFO ] [2017-03-03 15:22:21] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [534] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2545dc: startup date [Fri Mar 03 15:22:19 CST 2017]; root of context hierarchy
-[ INFO ] [2017-03-03 15:22:21] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [543] - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.hus.web.controller.web.DemoController.test()
-[ INFO ] [2017-03-03 15:22:21] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [543] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-[ INFO ] [2017-03-03 15:22:21] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [543] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-[ INFO ] [2017-03-03 15:22:21] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [354] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[ INFO ] [2017-03-03 15:22:21] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [354] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[ INFO ] [2017-03-03 15:22:21] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [354] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-[ INFO ] [2017-03-03 15:22:21] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [431] - Registering beans for JMX exposure on startup
-[ INFO ] [2017-03-03 15:22:21] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [916] - Bean with name 'druidDataSource' has been autodetected for JMX exposure
-[ INFO ] [2017-03-03 15:22:21] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [671] - Located MBean 'druidDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=druidDataSource,type=DruidDataSource]
-[ INFO ] [2017-03-03 15:22:21] org.apache.coyote.http11.Http11NioProtocol [179] - Initializing ProtocolHandler ["http-nio-8080"]
-[ INFO ] [2017-03-03 15:22:21] org.apache.coyote.http11.Http11NioProtocol [179] - Starting ProtocolHandler [http-nio-8080]
-[ INFO ] [2017-03-03 15:22:21] org.apache.tomcat.util.net.NioSelectorPool [179] - Using a shared selector for servlet write/read
-[ INFO ] [2017-03-03 15:22:21] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer [192] - Tomcat started on port(s): 8080 (http)
-[ INFO ] [2017-03-03 15:22:21] com.hus.Application [57] - Started Application in 2.405 seconds (JVM running for 2.657)
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa4cc0a202b65477c&redirect_uri=http://17157bv023.51mypc.cn/hus/wechat/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa4cc0a202b65477c&redirect_uri=http://17157bv023.51mypc.cn/hus/wechat/callback&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect
+ {
+     "button":[
+      {
+           "name":"自助服务",
+           "sub_button":[
+           {
+               "type":"view",
+               "name":"高校学生选课系统学生登录",
+               "url":"http://17157bv023.51mypc.cn/hus/wechat/enter"
+            }]
+       }]
+ }

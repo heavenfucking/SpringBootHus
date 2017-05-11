@@ -39,6 +39,14 @@ public class CourseService {
         return new ModelAndView(View.Student.COURSE_LIST_VIEW);
     }
 
+    public ModelAndView wechatStudentlist(HttpServletRequest request, Integer studentId){
+        request.setAttribute("unchoosed_course_lists", courseMapper.selectAllStudentUnChoosed(studentId));
+        request.setAttribute("choosed_course_lists", courseMapper.selectAllStudentChoosed(studentId));
+        System.out.println(courseMapper.selectAllStudentUnChoosed(studentId).size());
+        System.out.println(courseMapper.selectAllStudentChoosed(studentId).size());
+        return new ModelAndView(View.Student.COURSE_LIST_VIEW2);
+    }
+
     public ModelAndView addCourse(Course course){
         course.setSno(courseMapper.generateCourseSno());
         courseMapper.insert(course);
@@ -69,6 +77,11 @@ public class CourseService {
         courseMapper.addChoosedQuota(-1, courseId);
         courseMapper.deleteStudentCourseByStudentIdAndCourseId(scId, courseId);
         return new ModelAndView("redirect:/"+Url.Course.COURSE_LIST_URL_FOR_STU);
+    }
+
+    public ModelAndView adminlist(HttpServletRequest request){
+        request.setAttribute("course_lists", courseMapper.selectAll());
+        return new ModelAndView(View.Course.ADMIN_COURSE_LIST_VIEW);
     }
 
 }

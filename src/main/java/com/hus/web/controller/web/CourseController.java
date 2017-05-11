@@ -45,6 +45,26 @@ public class CourseController extends BaseConrtoller{
     }
 
     /**
+     * 微信 显示学生选课时的看到的课程列表
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = Url.Course.WX_COURSE_LIST_URL_FOR_STU, method = RequestMethod.GET)
+    public ModelAndView wechatStudentlist(HttpServletRequest request){
+        return courseService.wechatStudentlist(request, getUserId(request));
+    }
+
+    /**
+     * 显示管理员选课时的看到的课程列表
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = Url.Course.COURSE_LIST_URL_FOR_DDMIN, method = RequestMethod.GET)
+    public ModelAndView adminlist(HttpServletRequest request){
+        return courseService.adminlist(request);
+    }
+
+    /**
      * 添加课程信息
      * @param request
      * @param course

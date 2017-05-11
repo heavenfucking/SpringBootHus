@@ -1,6 +1,7 @@
 package com.hus.web.service;
 
 import com.hus.common.consts.App;
+import com.hus.common.consts.Url;
 import com.hus.common.consts.View;
 import com.hus.web.entity.SystemModule;
 import com.hus.web.entity.User;
@@ -45,6 +46,11 @@ public class LoginService {
             logger.error("密码错误");
             return new ModelAndView(View.Index.LOGIN_PAGE);
         }
+        String openId = (String) request.getSession().getAttribute(App.Session.WECHAT_USER_OPEN_ID);
+        if(openId!=null){
+            user.setOpenId(openId);
+            userMapper.update(user);
+        }
         request.getSession().setAttribute(App.Session.CURRENT_USER_OBJECT, user);
         List<SystemModule> list = systemModuleMapper.selectParentModuleByType(user.getType());
         list.stream().forEach((m)->{
@@ -52,5 +58,20 @@ public class LoginService {
         });
         request.getSession().setAttribute(App.Session.SYSTEM_MENU_ALL, list);
         return new ModelAndView(View.Index.LOGIN_HOME_PAGE);
+    }
+
+    public ModelAndView WechatuserLogin(HttpServletRequest request){
+        String openId = (String) request.getSession().getAttribute(App.Session.WECHAT_USER_OPEN_ID);
+        User user = userMapper.selectUserByOpenId(openId);
+        if(user==null){
+            return new ModelAndView("redirect:/"+ Url.Login.SHOW_LOGIN_PAGE);
+        }
+        request.getSession().setAttribute(App.Session.CURRENT_USER_OBJECT, user);
+        List<SystemModule> list = systemModuleMapper.selectParentModuleByType(user.getType());
+        list.stream().forEach((m)->{
+            m.setChildrenModule(systemModuleMapper.selectChildModuleByParentId(m.getId()));
+        });
+        request.getSession().setAttribute(App.Session.SYSTEM_MENU_ALL, list);
+        return new ModelAndView(View.Index.WX_LOGIN_HOME_PAGE);
     }
 }

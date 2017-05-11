@@ -49,4 +49,31 @@ public class UserController {
         return  userService.delateStudent(id);
     }
 
+
+    // 教师
+    @RequestMapping(value = Url.Teacher.TEACHER_LIST_URL, method = RequestMethod.GET)
+    public ModelAndView teaherlist(HttpServletRequest request){
+        return  userService.teacherList(request);
+    }
+
+    @RequestMapping(value = Url.Teacher.TEACHER_ADD_URL, method = RequestMethod.POST)
+    public ModelAndView addTeacher(HttpServletRequest request, User user){
+        return  userService.addTeacher(request, user);
+    }
+
+    @RequestMapping(value = Url.Teacher.TEACHER_UPDATE_URL, method = RequestMethod.POST)
+    @ResponseBody
+    public Object updateTeacher(User user){
+        return  userService.updateTeacher(user);
+    }
+    @RequestMapping(value = Url.Teacher.TEACHER_DELETE_URL, method = RequestMethod.GET)
+    public ModelAndView deleteTeacher(@PathVariable Integer id){
+        return  userService.delateTeacher(id);
+    }
+    @RequestMapping(value = Url.Teacher.TEACHER_INFO_URL, method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, String> getTeacherInfo(@PathVariable Integer id){
+        return  userService.getTeacherInfo(id);
+    }
+
 }

@@ -16,21 +16,15 @@ import java.util.Map;
 /**
  * Created by zhh on 2017/3/3.
  */
-@RestController
+@Controller
 public class DemoController {
 
     @Autowired
     private DepartmentMapper departmentMapper;
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Map<String,String>> test()
+    public String test()
     {
-        //String AuthUrl =App.Wechat.APPID+App.Wechat.APPSECRET;
-        Map<String, String> map = new HashMap();
-        map.put("1","2");
-        map.put("2","2");
-        List<Map<String, String>> list = new ArrayList<>();
-        list.add(map);
-        return departmentMapper.selectIdAndDP();
+
+        return "mobile/index";
     }
 }
