@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * Created by zhh on 2017/3/3.
+ * Created by zhao on 2017/3/3.
  */
 @Configuration
 public class DruidConfiguration {

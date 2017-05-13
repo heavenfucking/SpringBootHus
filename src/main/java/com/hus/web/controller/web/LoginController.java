@@ -35,13 +35,20 @@ public class LoginController {
         return new ModelAndView(View.Index.LOGIN_PAGE);
     }
 
+    /**
+     * PC端登录逻辑
+     * @param request
+     * @param sno
+     * @param password
+     * @return
+     */
     @RequestMapping(value = Url.Login.USER_LOGIN_URL, method = RequestMethod.POST)
     public ModelAndView userLogin(HttpServletRequest request, String sno, String password){
         return loginService.userLogin(request, sno, password);
     }
 
     /**
-     * 微信登录
+     * 微信端登录
      * @param request
      * @return
      */
@@ -52,8 +59,9 @@ public class LoginController {
 
     @RequestMapping(value = "wechat/enter", method = RequestMethod.GET)
     public void wechatenter(HttpServletResponse response) throws IOException {
-        response.sendRedirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa4cc0a202b65477c&redirect_uri=http://17157bv023.51mypc.cn/hus/wechat/callback&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect");
-//        response.sendRedirect("http://17157bv023.51mypc.cn/hus/home");
+        response.sendRedirect("https://open.weixin.qq.com/connect/oauth2/authorize" +
+                "?appid=wxa4cc0a202b65477c&redirect_uri=http://17157bv023.51mypc.cn/hus/wechat/callback" +
+                "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect");
     }
 
 }

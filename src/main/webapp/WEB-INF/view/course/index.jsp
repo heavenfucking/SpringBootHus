@@ -168,7 +168,7 @@
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    添加
+                    修改
                 </h4>
             </div>
             <div class="modal-body">
